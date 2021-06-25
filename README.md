@@ -33,7 +33,7 @@ def check_doc_outer_fn() -> 'Function':
         if not isinstance(fn, Callable):
             raise TypeError("Expected function!")
 
-        return True if(len(fn.__doc__) < min_character_len) else False
+        return True if(len(fn.__doc__) >= min_character_len) else False
 
     return check_doc_inner_fn
 ```
