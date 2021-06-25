@@ -46,14 +46,14 @@ def test_readme_file_for_formatting():
 def test_indentations():
     ''' Returns pass if used four spaces for each level of syntactically \
     significant indenting.'''
-    lines = inspect.getsource(session8)
+    lines = inspect.getsource(session7)
     spaces = re.findall('\n +.', lines)
     for space in spaces:
         assert len(space) % 4 == 2, "Your script contains misplaced indentations"
         assert len(re.sub(r'[^ ]', '', space)) % 4 == 0, "Your code indentation does not follow PEP8 guidelines" 
 
 def test_function_name_had_cap_letter():
-    functions = inspect.getmembers(session8, inspect.isfunction)
+    functions = inspect.getmembers(session7, inspect.isfunction)
     for function in functions:
         assert len(re.findall('([A-Z])', function[0])) == 0, "You have used Capital letter(s) in your function names"
 
@@ -64,7 +64,7 @@ def test_function_doc_string():
     '''
     Test case to check whether the functions have docstrings or not.
     '''
-    functions = inspect.getmembers(session8, inspect.isfunction)
+    functions = inspect.getmembers(session7, inspect.isfunction)
     for function in functions:
         assert function[1].__doc__, "You have not documented the code!"
 
@@ -72,7 +72,7 @@ def test_function_annotations():
     '''
     Test case to check whether the functions have annotations or not.
     '''
-    functions = inspect.getmembers(session8, inspect.isfunction)
+    functions = inspect.getmembers(session7, inspect.isfunction)
     for function in functions:
         assert function[1].__annotations__, "You have not annotated the code!"
 
@@ -132,9 +132,9 @@ def test_func_count():
         fc(randomf)
    
     
-    assert session8.call_count['add'] == 5, "Something wrong with the func_count function."
-    assert session8.call_count['mul'] == 3, "Something wrong with the func_count function."
-    assert session8.call_count['randomf'] == 10, "Something wrong with the func_count function."
+    assert session7.call_count['add'] == 5, "Something wrong with the func_count function."
+    assert session7.call_count['mul'] == 3, "Something wrong with the func_count function."
+    assert session7.call_count['randomf'] == 10, "Something wrong with the func_count function."
 
 def test_func_count_check_error():
     with pytest.raises(TypeError):
