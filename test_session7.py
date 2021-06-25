@@ -1,12 +1,12 @@
 import pytest
 import random
-import session8
+import session7
 import os
 import inspect
 import re
 import math
 from random import randint
-from session8 import *
+from session7 import *
 
 # ------------------------ General Test Cases -----------------------------------
 
