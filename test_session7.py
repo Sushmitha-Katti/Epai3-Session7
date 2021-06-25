@@ -95,8 +95,7 @@ def test_func():
     return
 def test_check_dock_true():
     dc = check_doc_outer_fn()
-    fc = test_func() 
-    assert dc(fc) == True, "Something wrong with the check_doc_fn function."
+    assert dc(test_func) == True, "Something wrong with the check_doc_fn function."
 
 
 def test_check_dock_false():
