@@ -77,7 +77,9 @@ def test_function_annotations():
         assert function[1].__annotations__, "You have not annotated the code!"
 
 # ------------------------------------ Doc String Check function Test Case --------------------------
-def test_func():
+
+# Dummy function to test
+def test_func_true():
     """
     Function to check 50 characters doc string
     Function to check 50 characters doc string
@@ -93,6 +95,13 @@ def test_func():
     Function to check 50 characters doc string
     """
     return
+# Dummy function to test
+def test_func_false():
+    """
+    Less Doc
+    """
+    return
+
 def test_check_dock_true():
     dc = check_doc_outer_fn()
     assert dc(test_func) == True, "Something wrong with the check_doc_fn function."
@@ -100,8 +109,7 @@ def test_check_dock_true():
 
 def test_check_dock_false():
     dc = check_doc_outer_fn()
-    fc = func_counter() # The internal function returned by func_counter has a smaller doc string
-    assert dc(fc) == False, "Something wrong with the check_doc_fn function."
+    assert dc(test_func_false) == False, "Something wrong with the check_doc_fn function."
 
 
 # ------------------------------------ Fibonacci Test Case --------------------------
